@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input
+        type="text"
+        name=""
+        id=""
+        autofocus
+        required
+        placeholder="Enter your key"
+      />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+
+<script>
+  function openInPopup(id) {
+    // view hint in pop-up
+    const $el = document.getElementById(id);
+
+    if ($el) {
+      $el.addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault();
+          return window.open(
+            $el.href,
+            id,
+            "toolbar=0,status=0,resizable=1,width=660,height=436"
+          );
+        },
+        false
+      );
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // open link in pop-up
+    openInPopup("hint");
+    openInPopup("share");
+
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0
+    );
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach((el) => {
+        el.addEventListener("click", () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle("is-active");
+          $target.classList.toggle("is-active");
+        });
+      });
+    }
+  });
+</script>
